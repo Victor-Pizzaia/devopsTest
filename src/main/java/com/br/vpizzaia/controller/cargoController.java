@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.bind.ValidationException;
 import java.util.List;
 
 @RestController
@@ -32,7 +33,10 @@ public class cargoController {
     }
 
     @PostMapping
-    public ResponseEntity<Cargo> save(@RequestBody Cargo cargo) {
+    public ResponseEntity<Cargo> save(@RequestBody Cargo cargo) throws ValidationException {
+        if(cargo.getCargo() == null || cargo.getCargo() == "") {
+            throw new ValidationException("Preencha o campo cargo!");
+        }
         val newCarg = carg.save(cargo);
         return new ResponseEntity<Cargo>(newCarg, HttpStatus.CREATED);
     }
