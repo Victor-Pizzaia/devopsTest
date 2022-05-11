@@ -23,7 +23,7 @@ public class CargoControllerTest {
 
     @Before
     public void setup() {
-        MockitoAnnotations.openMocks(this);
+        MockitoAnnotations.initMocks(this);
     }
     @Test
     public void shouldNotSaveJobWithoutJob() {
