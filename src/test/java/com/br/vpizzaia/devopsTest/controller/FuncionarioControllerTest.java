@@ -47,7 +47,7 @@ public class FuncionarioControllerTest {
             controller.save(func);
             Assert.fail("Error");
         } catch (ValidationException e) {
-            Assert.assertEquals("Preencha o campo cpf!", e.getMessage());
+            Assert.assertEquals("Preencha o campo cpf", e.getMessage());
         }
     }
 
