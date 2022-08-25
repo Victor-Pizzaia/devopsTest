@@ -9,3 +9,4 @@ public class DevopsTestApplication {
         SpringApplication.run(DevopsTestApplication.class, args);
     }
 }
+
